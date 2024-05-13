@@ -17,14 +17,14 @@ import java.util.Set;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class JpaOneToManyDemoApplication implements CommandLineRunner {
+public class JpaOneToManyDemoApplication {
 
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpaOneToManyDemoApplication.class, args);
 	}
 
-	@Autowired
+/*	@Autowired
 	private PostRepository postRepository;
 
 	@Override
@@ -58,7 +58,7 @@ public class JpaOneToManyDemoApplication implements CommandLineRunner {
 		//Post post5 = new Post("title5","Description5","Content5");
 
 
-	}
+	}*/
 
 
 }

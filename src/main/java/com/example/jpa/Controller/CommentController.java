@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -19,12 +19,11 @@ public class CommentController {
     private CommentRepository commentRepository;
     @Autowired
     private PostRepository postRepository;
-  /*  @GetMapping("/posts/{postId}/comments")
-
+    @GetMapping("/posts/{postId}/comments")
     public Page<Comment> getAllCommentsByPostId(@PathVariable (value = "postId") Long postId, Pageable pageable)
     {
-        return  commentRepository.findByPostId(postId, Pageable pageable);
-    }*/
+        return commentRepository.findByPostId(postId, pageable);
+    }
 
 
     @PostMapping("/posts/{postId}/comments")
