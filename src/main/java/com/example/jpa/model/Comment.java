@@ -54,5 +54,9 @@ public class Comment extends AuditModel {
         this.text = text;
         this.post = post;
     }
+
+    public Comment(String text) {
+        this.text = text;
+    }
     // Getters en Setters (weggelaten omwille van de beknoptheid) }
 }

@@ -19,11 +19,11 @@ public class CommentController {
     private CommentRepository commentRepository;
     @Autowired
     private PostRepository postRepository;
-    @GetMapping("/posts/{postId}/comments")
+  /*  @GetMapping("/posts/{postId}/comments")
 
- /*   public Page<Comment> getAllCommentsByPostId(@PathVariable (value = "postId") Long postId, Pageable pageable)
+    public Page<Comment> getAllCommentsByPostId(@PathVariable (value = "postId") Long postId, Pageable pageable)
     {
-        return (Page<Comment>) commentRepository.findByPostId(postId, (java.awt.print.Pageable) pageable);
+        return  commentRepository.findByPostId(postId, Pageable pageable);
     }*/
 
 

@@ -65,12 +65,19 @@ public class Post extends AuditModel
         this.comments = comments;
     }
 
+
     public Post(Long id, String title, String description, String content, Set<Comment> comments) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.content = content;
         this.comments = comments;
+    }
+
+    public Post(String title, String description, String content) {
+        this.title = title;
+        this.description = description;
+        this.content = content;
     }
 
     public Post() {
