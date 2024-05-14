@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
+import java.util.Optional;
+
 @RestController
 public class PostController {
     @Autowired
@@ -20,11 +22,19 @@ public class PostController {
         return postRepository.findAll(pageable);
     }
 
+   @GetMapping("/posts/{postId}")
+   public Post getPostWithId(@PathVariable Long postId) {
+       Optional<Post> postOptional = postRepository.findById(postId);
+       return postRepository.findById(postId)
+               .orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+
+   }
     @PostMapping("/posts")
     public Post createPost(@Valid @RequestBody Post post)
     {
         return postRepository.save(post);
     }
+
 
     @PutMapping("/posts/{postId}")
     public Post updatePost(@PathVariable Long postId, @Valid @RequestBody Post postRequest)

@@ -54,6 +54,11 @@ public class Comment extends AuditModel {
         this.text = text;
         this.post = post;
     }
+    public Comment(String text,Post post)
+    {
+        this.text = text;
+        this.post = post;
+    }
 
     public Comment(String text) {
         this.text = text;
