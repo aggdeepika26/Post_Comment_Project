@@ -12,7 +12,11 @@
     <hr/>
     <form th:action="@{/saveMyComment}" th:object="${comment}" method="POST">
 
+        <input type = "text" th:field="*{post.id}" placeholder = "Id" class = "form-control col-4 mb-4"/>
         <textarea th:field="*{text}" placeholder="Enter Content" class="form-control col-4 mb-4"></textarea>
+
+
+
         <button class = "btn btn-primary" type = "submit">Save</button>
         <input type="hidden" th:field="*{id}">
     </form>
@@ -22,6 +26,7 @@
     <a th:href="@{/list}" class="btn btn-secondary mb-4">Back to list</a>
 
     <h2>Comments</h2>
+    <!--
     <div th:if="${#listComments.isEmpty(comments)}">
     <p>No comments available.</p>
     </div>
@@ -32,6 +37,8 @@
         </div>
     </div>
    </div>
+
+-->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
