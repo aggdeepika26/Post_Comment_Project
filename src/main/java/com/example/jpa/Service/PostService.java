@@ -4,7 +4,8 @@ import com.example.jpa.model.Post;
 
 import java.util.List;
 
-public interface PostService {
+public interface PostService
+{
     List<Post> getAllPost();
     void savePost(Post post);
     Post getPostById(Long id);

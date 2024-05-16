@@ -1,19 +1,16 @@
 package com.example.jpa.Controller;
 
-import com.example.jpa.Service.PostService;
 import com.example.jpa.Service.PostServiceImpl;
 import com.example.jpa.model.Post;
-import com.example.jpa.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
-public class HomePageController {
+public class HomePagePostController {
     @Autowired
     private PostServiceImpl postService;
 
@@ -43,8 +40,8 @@ public class HomePageController {
 
 
     @GetMapping("/showFormForUpdate")
-    public ModelAndView showUpdateForm(@RequestParam Long id) {
-        ModelAndView mav = new ModelAndView("update_post");
+    public ModelAndView showFormForUpdate(@RequestParam Long id) {
+        ModelAndView mav = new ModelAndView("new_post");
         Post post = postService.getPostById(id);
         mav.addObject("post", post);
         return mav;

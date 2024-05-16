@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employees</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class = "container">
+    <h2>Add Comment/Update Comment </h2>
+    <hr/>
+    <form th:action="@{/saveMyComment}" th:object="${comment}" method="POST">
+
+        <textarea th:field="*{text}" placeholder="Enter Content" class="form-control col-4 mb-4"></textarea>
+        <button class = "btn btn-primary" type = "submit">Save</button>
+        <input type="hidden" th:field="*{id}">
+    </form>
+    <hr/>
+
+
+    <a th:href="@{/list}" class="btn btn-secondary mb-4">Back to list</a>
+
+    <h2>Comments</h2>
+    <div th:if="${#listComments.isEmpty(comments)}">
+    <p>No comments available.</p>
+    </div>
+    <div th:each="comment : ${comments}" class="mb-3">
+      <div class="card">
+          <div class="card-body">
+              <p class="card-text" th:text="${comment.text}">Sample comment text</p><small class="text-muted" th:text="${#dates.format(comment.timestamp, 'yyyy-MM-dd HH:mm')}">2024-05-16</small>
+        </div>
+    </div>
+   </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
